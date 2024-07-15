@@ -1,0 +1,5 @@
+so i was not able to get the newuser in the /register
+then i found the mistake that in findOne i didn't use await
+
+lol literally wasted my 25 mins just because i forgot to app.use(cookieParser)
+so if in furutre if you get any problem relatted to cookie check this first

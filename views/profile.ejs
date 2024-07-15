@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Profile</title>
+    <link rel="stylesheet" href="/css/profile.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+
+<body>
+    <!-- Navbar -->
+    <div class="navbar">
+        <div class="navbar-container">
+            <div class="logo">
+                <a href="/">Socifi.</a>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/logout">Logout</a></li>
+                    <div class="profile-pic">   
+                        <a href="/profile/upload"><img class="profile-pic" src="/image/upload/<%= user.profilepic %>" alt="Profile Picture"></a>
+                    </div>
+                </ul>
+            </nav>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="content-container">
+        <header>
+            <div class="profile-info">
+                <div class="profile-details">
+                    <h1>User Profile</h1>
+                    <p>Welcome, <%= user.username %>!</p>
+                </div>
+            </div>
+        </header>
+        <!-- Post Creation Form -->
+        <section class="post-form">
+            <div class="card">
+                <div class="card-body">
+                    <form action="/create-post" method="POST">
+                        <textarea name="postContent" placeholder="Write your post here..."></textarea>
+                        <button type="submit">Post</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <!-- Old Posts Section -->
+        <section class="old-posts">
+            <h2>Old Posts</h2>
+            <% user.posts.forEach((post)=> { %>
+                <div class="card">
+                    <div class="card-body">
+                        <h3>@<%= user.username %>
+                        </h3>
+                        <p>
+                            <%= post.content %>
+                        </p>
+                        <small>
+                            <%= post.likes.length %>
+                        </small>
+                        <div class="post-actions">
+                            <a href="/like/<%= post._id %>">
+                                <i
+                                    class="fas <%= post.likes.indexOf(user._id) === -1 ? 'fa-thumbs-up' : 'fa-thumbs-down' %>"></i>
+                                <%= post.likes.indexOf(user._id)===-1 ? "Like" : "Unlike" %>
+                            </a>
+                            <a href="#"><i class="fas fa-edit"></i> Edit</a>
+                            <span>
+                                <%= post.date.toLocaleDateString()%>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <% }) %>
+        </section>
+    </div>
+
+
+    <!-- Background Animation -->
+    <div class="background-animation"></div>
+
+    <!-- Scripts -->
+    <script src="/js/profile.js"></script>
+</body>
+
+</html>

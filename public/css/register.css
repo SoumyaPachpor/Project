@@ -1,0 +1,109 @@
+@font-face {
+    font-family: 'Azonix';
+    src: url('./azonix/Azonix.otf') format('opentype');
+}
+
+* {
+    font-family: 'Azonix';
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: linear-gradient(135deg, #3b5998, #192f6a);
+    overflow: hidden;
+    color: #fff;
+}
+
+.container {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 40px 60px;
+    border-radius: 20px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(10px);
+    text-align: center;
+    max-width: 400px;
+    width: 100%;
+}
+
+.gradient-text {
+    font-size: 2.5rem;
+    background: linear-gradient(to right, #ff6b6b, #ffc107, #4caf50, #2196f3);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 20px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: bold;
+    color: #ccc;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 15px;
+    border: none;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.2);
+    color: #fff;
+    font-size: 1rem;
+    outline: none;
+    transition: background 0.3s ease-in-out;
+}
+
+.form-group input:focus {
+    background: rgba(255, 255, 255, 0.3);
+}
+
+button {
+    padding: 15px;
+    border: none;
+    border-radius: 10px;
+    background: lightseagreen;
+    font-size: 1.2rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all .3s ease-in-out;
+}
+
+button:hover {
+    background: rgba(28, 151, 145, 0.788);
+
+}
+
+.background-animation {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('https://www.transparenttextures.com/patterns/cubes.png');
+    /* background-size: 5vmax; */
+    animation: move 10s ease-in-out forwards alternate-reverse infinite;
+    opacity: 0.1;
+    z-index: -1;
+}
+
+@keyframes move {
+    0% {
+        background-position: 0 0;
+        transform: scale(1.5);
+    }
+
+    100% {
+        background-position: 100% 100%;
+        transform: scale(1);
+    }
+}

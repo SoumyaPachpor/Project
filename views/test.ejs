@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>User Registration</title>
+  <link rel="stylesheet" href="/css/register.css">
+  <style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background-color: #f0f0f0;
+      }
+      
+      .container {
+        background: white;
+        padding: 2rem;
+        border-radius: 10px;
+        box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+        text-align: center;
+        position: relative;
+        z-index: 2;
+      }
+      
+      h1.gradient-text {
+        background: linear-gradient(to right, #30cfd0, #330867);
+        background-clip: text;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        font-size: 2rem;
+        margin-bottom: 1.5rem;
+      }
+      
+      .form-group {
+        margin-bottom: 1rem;
+      }
+      
+      label {
+        display: block;
+        margin-bottom: 0.5rem;
+        font-weight: bold;
+      }
+      
+      input[type="file"] {
+        padding: 0.5rem;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        width: 100%;
+      }
+      
+      input[type="submit"] {
+        background: #30cfd0;
+        color: white;
+        border: none;
+        padding: 0.75rem 1.5rem;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 1rem;
+        transition: background 0.3s;
+      }
+      
+      input[type="submit"]:hover {
+        background: #330867;
+      }
+      
+      .background-animation {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(45deg, #30cfd0, #330867);
+        z-index: 1;
+        opacity: 0.2;
+        animation: gradient 5s infinite alternate;
+      }
+      
+      @keyframes gradient {
+        0% {
+          background-position: 0% 50%;
+        }
+        100% {
+          background-position: 100% 50%;
+        }
+      }
+      
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1 class="gradient-text">Upload A File</h1>
+    <form action="/upload" method="POST" enctype="multipart/form-data">
+      <div class="form-group">
+        <label for="file">Add your image</label>
+        <input type="file" id="file" name="file" required>
+      </div>
+      <div class="form-group">
+        <input type="submit" value="Submit">
+      </div>
+    </form>
+  </div>
+  <div class="background-animation"></div>
+</body>
+</html>
